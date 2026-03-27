@@ -1,0 +1,97 @@
+{
+  "_meta": "Arena LLM Stack — JunoTalk AI model routing config",
+  "_version": "1.0.0",
+  "_updated": "2026-03-27",
+  "primary_provider": "openrouter",
+  "fallback_chain": [
+    "openrouter",
+    "gemini",
+    "claude",
+    "kimi",
+    "offline"
+  ],
+  "models": {
+    "translation": {
+      "model": "google/gemma-3-27b-it",
+      "provider": "openrouter",
+      "temperature": 0.1,
+      "max_tokens": 500
+    },
+    "translation_prompt": {
+      "model": "google/gemma-3-1b-it:free",
+      "provider": "openrouter",
+      "temperature": 0.1,
+      "max_tokens": 1000
+    },
+    "chat": {
+      "model": "google/gemma-3-1b-it:free",
+      "provider": "openrouter",
+      "temperature": 0.75,
+      "max_tokens": 500
+    },
+    "monitor": {
+      "model": "google/gemma-3-1b-it:free",
+      "provider": "openrouter",
+      "temperature": 0.2,
+      "max_tokens": 300
+    },
+    "knowledge": {
+      "model": "google/gemma-3-1b-it:free",
+      "provider": "openrouter",
+      "temperature": 0.3,
+      "max_tokens": 800
+    },
+    "general": {
+      "model": "google/gemma-3-1b-it:free",
+      "provider": "openrouter",
+      "temperature": 0.5,
+      "max_tokens": 500
+    }
+  },
+  "provider_timeouts_ms": {
+    "openrouter": 15000,
+    "gemini": 10000,
+    "claude": 15000,
+    "kimi": 10000,
+    "deepseek": 12000
+  },
+  "rate_limits": {
+    "openrouter": {
+      "dailyTokenBudget": 500000
+    },
+    "gemini": {
+      "dailyTokenBudget": 100000
+    },
+    "claude": {
+      "dailyTokenBudget": 3000
+    },
+    "kimi": {
+      "dailyTokenBudget": 50000
+    },
+    "deepseek": {
+      "dailyTokenBudget": 150000
+    }
+  },
+  "juno_persona": {
+    "name": "Juno",
+    "voice": "nova",
+    "personality": "warm, intelligent, conversational",
+    "greeting_prompts": [
+      "What would you like to translate today?",
+      "What language are you working with?",
+      "Do you want to speak or type?",
+      "You can talk about anything — I'll translate it for you.",
+      "Are you translating something for a trip or a conversation?",
+      "Say anything in your language and I'll handle the rest.",
+      "Need to break a language barrier? Let's go."
+    ]
+  },
+  "feature_flags": {
+    "conversational_ai": true,
+    "knowledge_context": true,
+    "voice_translation": true,
+    "tts_enabled": true,
+    "streaming_responses": false,
+    "arena_routing": true
+  }
+}
