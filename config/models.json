@@ -1,0 +1,84 @@
+{
+  "models": [
+    {
+      "id": "openrouter-gemma-27b",
+      "name": "Gemma 3 27B (OpenRouter)",
+      "provider": "openrouter",
+      "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+      "model": "google/gemma-3-27b-it",
+      "type": "translation",
+      "priority": 1,
+      "dailyTokenBudget": 500000,
+      "timeoutMs": 15000
+    },
+    {
+      "id": "openrouter-gemma-1b",
+      "name": "Gemma 3 1B Free (OpenRouter)",
+      "provider": "openrouter",
+      "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+      "model": "google/gemma-3-1b-it:free",
+      "type": "chat",
+      "priority": 2,
+      "dailyTokenBudget": 500000,
+      "timeoutMs": 15000
+    },
+    {
+      "id": "deepseek-chat",
+      "name": "DeepSeek V3",
+      "provider": "deepseek",
+      "endpoint": "https://models.inference.ai.azure.com/chat/completions",
+      "model": "DeepSeek-V3",
+      "type": "chat",
+      "priority": 3,
+      "dailyTokenBudget": 150000,
+      "timeoutMs": 12000
+    },
+    {
+      "id": "kimi-chat",
+      "name": "Kimi Chat",
+      "provider": "kimi",
+      "endpoint": "https://api.moonshot.cn/v1",
+      "type": "chat",
+      "priority": 4,
+      "dailyTokenBudget": 50000,
+      "timeoutMs": 10000
+    },
+    {
+      "id": "gemini-flash",
+      "name": "Gemini Flash",
+      "provider": "gemini",
+      "endpoint": "https://generativelanguage.googleapis.com/v1beta",
+      "type": "translation",
+      "priority": 5,
+      "dailyTokenBudget": 100000,
+      "timeoutMs": 10000
+    },
+    {
+      "id": "claude-3-haiku",
+      "name": "Claude 3 Haiku",
+      "provider": "claude",
+      "endpoint": "https://api.anthropic.com/v1/messages",
+      "type": "chat",
+      "priority": 6,
+      "dailyTokenBudget": 3000,
+      "timeoutMs": 15000
+    },
+    {
+      "id": "libretranslate",
+      "name": "LibreTranslate (local)",
+      "provider": "libretranslate",
+      "endpoint": "",
+      "type": "translation",
+      "priority": 0,
+      "timeoutMs": 8000
+    },
+    {
+      "id": "fallback-basic",
+      "name": "Offline Fallback",
+      "provider": "offline",
+      "endpoint": "",
+      "type": "fallback",
+      "priority": 99
+    }
+  ]
+}
