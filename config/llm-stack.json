@@ -1,63 +1,80 @@
 {
-  "_meta": "Arena LLM Stack — JunoTalk AI model routing config",
-  "_version": "1.0.0",
-  "_updated": "2026-04-02",
-  "primary_provider": "openai",
+  "_meta": "Arena LLM Stack — Juno Intelligence Core",
+  "_version": "2.0.0",
+  "_updated": "2026-04-10",
+  "primary_provider": "juno-core",
   "fallback_chain": [
-    "openai",
-    "gemini",
+    "juno-core",
+    "groq",
+    "openrouter",
     "deepseek",
+    "gemini",
     "kimi",
+    "openai",
     "offline"
   ],
   "models": {
     "translation": {
-      "model": "gpt-4o-mini",
-      "provider": "openai",
+      "model": "llama-3.3-70b-versatile",
+      "provider": "juno-core",
       "temperature": 0.1,
-      "max_tokens": 500
+      "max_tokens": 512
     },
     "translation_prompt": {
-      "model": "gpt-4o-mini",
-      "provider": "openai",
+      "model": "llama-3.3-70b-versatile",
+      "provider": "juno-core",
       "temperature": 0.1,
       "max_tokens": 1000
     },
     "chat": {
-      "model": "gpt-4o-mini",
-      "provider": "openai",
-      "temperature": 0.75,
-      "max_tokens": 1200
+      "model": "llama-3.3-70b-versatile",
+      "provider": "juno-core",
+      "temperature": 0.72,
+      "max_tokens": 1024
     },
     "monitor": {
-      "model": "gpt-4o-mini",
-      "provider": "openai",
+      "model": "llama-3.3-70b-versatile",
+      "provider": "juno-core",
       "temperature": 0.2,
-      "max_tokens": 300
+      "max_tokens": 400
     },
     "knowledge": {
-      "model": "gpt-4o-mini",
-      "provider": "openai",
+      "model": "llama-3.3-70b-versatile",
+      "provider": "juno-core",
       "temperature": 0.3,
       "max_tokens": 800
     },
     "general": {
-      "model": "gpt-4o-mini",
-      "provider": "openai",
+      "model": "llama-3.3-70b-versatile",
+      "provider": "juno-core",
       "temperature": 0.5,
-      "max_tokens": 500
+      "max_tokens": 600
+    },
+    "background": {
+      "model": "llama-3.3-70b-versatile",
+      "provider": "juno-core",
+      "temperature": 0.4,
+      "max_tokens": 2048
     }
   },
   "provider_timeouts_ms": {
-    "github-models": 8000,
-    "openai": 20000,
+    "juno-core": 30000,
+    "groq": 10000,
     "openrouter": 15000,
     "gemini": 15000,
     "claude": 25000,
     "kimi": 15000,
-    "deepseek": 20000
+    "deepseek": 12000,
+    "openai": 20000,
+    "github-models": 18000
   },
   "rate_limits": {
+    "juno-core": {
+      "dailyTokenBudget": 5000000
+    },
+    "groq": {
+      "dailyTokenBudget": 500000
+    },
     "openrouter": {
       "dailyTokenBudget": 500000
     },
@@ -65,7 +82,7 @@
       "dailyTokenBudget": 100000
     },
     "claude": {
-      "dailyTokenBudget": 3000
+      "dailyTokenBudget": 30000
     },
     "kimi": {
       "dailyTokenBudget": 50000
@@ -95,6 +112,6 @@
     "tts_enabled": true,
     "streaming_responses": false,
     "arena_routing": true,
-    "image_generation": false
+    "image_generation": true
   }
 }
